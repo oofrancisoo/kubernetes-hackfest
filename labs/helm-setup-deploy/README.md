@@ -9,6 +9,11 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
     * [Azure Kubernetes Service](../create-aks-cluster/README.md)
     * [Build Application Components in Azure Container Registry](../build-application/README.md)
 
+## Gotchas
+
+* Make sure you use the correct variable names in step 5.
+* Make sure you notice the extra "/hackfest" in step 5.
+
 ## Instructions
 
 1. Initialize Helm
@@ -36,7 +41,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
         Server: &version.Version{SemVer:"v2.10.0", GitCommit:"20adb27c7c5868466912eebdf6664e7390ebe710", GitTreeState:"clean"}
         ```
 
-        > It can take a minute or so for Tiller to start
+        > **Note:** Because Tiller runs as a pod on Kubernetes just like any other application, it can take a minute or so for Tiller to download and spin up on the cluster.
 
 2. Create Application Insights Instance
 
@@ -73,7 +78,12 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
 
         ```
     
-    * Replace the `acrServer` value below with the Login server from previous step. In the Azure Cloud Shell, select the file editor '{}'.  Navigate to the yaml files below.  To save changes, select the elipticals on the right hand side and select Save. You will make this change in all of the charts below (except cache-api)
+    * Replace the `acrServer` value from each of the files below with the Login server from previous step. You can launch the new code editor directly from the Azure Cloud Shell with the command below. Within the code editor, make changes to each of the yaml files below.
+
+        ```
+        cd charts
+        code .
+        ```
     
         [charts/service-tracker-ui/values.yaml](../../charts/service-tracker-ui/values.yaml)
 
@@ -113,9 +123,9 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
     az cosmosdb list-connection-strings --name $COSMOSNAME --resource-group $RGNAME
     ```
 
-    > Note: the MONGODB_URI should be of this format **(Ensure you add the `/hackfest?ssl=true`)** at the end. 
+    > **Note:** the MONGODB_URI should be of this format **(Ensure you add the `/hackfest?ssl=true`)** at the end.  
     
-    mongodb://cosmosbrian11199:ctumHIz1jC4Mh1hZgWGEcLwlCLjDSCfFekVFHHhuqQxIoJGiQXrIT1TZTllqyB4G0VuI4fb0qESeuHCRJHA==@acrhcosmosbrian11122.documents.azure.com:10255/<strong style="font-size:24px; font-family:courier; color:#308e48">hackfest</strong>?ssl=true
+    mongodb://cosmosbrian11199:ctumHIz1jC4Mh1hZgWGEcLwlCLjDSCfFekVFHHhuqQxIoJGiQXrIT1TZTllqyB4G0VuI4fb0qESeuHCRJHA==@acrhcosmosbrian11122.documents.azure.com:10255/<strong style="font-size:24px;font-family:courier;color:#308e48;background-color:yellow">hackfest</strong>?ssl=true
 
     ```
     export MONGODB_URI='outputFromAboveCommand'
