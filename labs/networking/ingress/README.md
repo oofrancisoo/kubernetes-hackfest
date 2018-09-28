@@ -27,31 +27,35 @@ Step 1 & 2 Only Needed if you did not complete Helm Setup In previous labs. Skip
     ```bash
     # Make sure Helm Repository is up to date
     helm repo update
+
     # Install Helm Repo
     helm install stable/nginx-ingress --namespace kube-system
+
     # Validate nginx is Installed
     helm list
     ```
 
-4. Get Public IP Address & Update [configure-publicip-dns.sh](./configure-publicip-dns.sh) file
-
+4. Get Public IP Address of the New Ingress Controller
+    
     ```bash
     kubectl get service -l app=nginx-ingress --namespace kube-system
     ```
 
-    * Replace IP with Public IP Address above
-    * Replace DNSNAME with DNS name to be used
-
+    * Setup IP and NAME for later use
     ```bash
     # Set DNSNAME to be used later
+    export IP=<PUBLIC-IP-FROM-ABOVE>
     export DNSNAME=<REPLACE-WITH-USER-INITIALS>ingress
     ```
 
 5. Execute Configure PublicIP DNS Script
 
     ```bash
-    chmod +x configure-publicip-dns.sh
-    ./configure-publicip-dns.sh
+    # Get the resource-id of the public ip
+    PUBLICIPID=$(az network public-ip list --query "[?ipAddress=='$IP'].[id]" --output tsv)
+
+    # Update public ip address with dns name
+    az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
     ```
 
 6. Install Cert Mgr with RBAC
@@ -76,17 +80,20 @@ Step 1 & 2 Only Needed if you did not complete Helm Setup In previous labs. Skip
     ```
 
 9. Apply Ingress Rules
+    * Update DNS values in [app-ingress.yaml](./app-ingress.yaml)
+    * Apply ingress rule
 
     ```bash
     # Apply Ingress Routes
     kubectl apply -f app-ingress.yaml
+    
     # Check Ingress Route & Endpoints
     kubectl get ingress
     kubectl get endpoints
     ```
 10. Check Ingress Route Works
-
     * Open dnsname.eastus.cloudapp.azure.com
+
 #### Next Lab: [Network Policy](../network-policy/README.md)
 
 ## Troubleshooting / Debugging
