@@ -30,11 +30,11 @@
     This will return the following. !!!IMPORTANT!!! - Please copy this information down as you'll need it for labs going forward.
 
     ```bash
-    "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+    "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "displayName": "azure-cli-2017-10-15-02-20-15",
     "name": "http://azure-cli-2017-10-15-02-20-15",
-    "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-    "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+    "password": "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+    "tenant": "zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
     ```
 
     Set the values from above as variables **(replace <appId> and <password> with your values)**.
@@ -92,8 +92,11 @@
     --client-secret $CLIENTSECRET \
     --generate-ssh-keys -l $LOCATION \
     --node-count 3 \
-    --enable-addons http_application_routing,monitoring
+    --enable-addons http_application_routing,monitoring \
+    --no-wait
     ```
+
+    > **Note:** While you are waiting for you cluster to be provisioned, you can move on to the [next lab](../build-application/README.md), but remember to come back and continue from step 9 once your cluster is ready.
 
 9. Verify your cluster status. The `ProvisioningState` should be `Succeeded`
     ```bash
@@ -114,11 +117,11 @@
      
 11. Verify you have API access to your new AKS cluster
     
-      > Note: It can take 5 minutes for your nodes to appear and be in READY state. You can run `watch kubectl get nodes` to monitor status.
+    > Note: It can take 5 minutes for your nodes to appear and be in READY state. You can run `watch kubectl get nodes` to monitor status.
 
-     ```bash
-     kubectl get nodes
-     ```
+    ```bash
+    kubectl get nodes
+    ```
     ```bash
      NAME                       STATUS    ROLES     AGE       VERSION
      aks-nodepool1-26522970-0   Ready     agent     33m       v1.10.3
