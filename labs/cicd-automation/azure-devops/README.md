@@ -57,6 +57,8 @@ The general workflow/result will be as follows:
 9. Click on the Azure CLI task and choose your Azure subscription and `Authorize`
 10. Choose "Inline script" and enter the following (be sure to replace the ACR name with yours). Notice how we create a dynamic image tag using our build ID from VSTS.
 
+    > **Note:** Make sure to add your Azure Container Registry name to the first line of the script below.
+
     ```
     export ACRNAME=<replace>
     export IMAGETAG=vsts-$(Build.BuildId)
@@ -108,7 +110,8 @@ In the deployment pipeline, we will create a Helm task to update our application
     * For Chart path, click the "..." button and browse to the "service-trakcer-ui" chart in the charts directory
     * For the Release Name, enter `service-tracker-ui`
     * For Set Values you will need to fix the ACR server to match your ACR server name and the imageTag needs to be set. 
-        Eg - `acrServer=acrhackfestbrian123.azurecr.io,imageTag=vsts-$(Build.BuildId)`
+        Eg - `deploy.acrServer=acrhackfestbrian123.azurecr.io,deploy.imageTag=vsts-$(Build.BuildId)`
+    * For testing, you can add `--timeout 60` to the Arguments field. The default value is 300 seconds, which means your pipeline can take 5 minutes to fail if there is a problem.
 
     ![](azure-do-helm-task.png)
 
