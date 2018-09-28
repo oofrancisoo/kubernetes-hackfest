@@ -11,7 +11,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
 
 ## Gotchas
 
-* Make sure you use the correct variable names in step 5.
+* Make sure you use the correct variable names when setting up the secrets in step 5.
 * Make sure you notice the extra "/hackfest" in step 5.
 
 ## Instructions
@@ -69,7 +69,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
 
     * Get the value of your ACR Login Server:
 
-        ```
+        ```bash
         az acr list -o table --query "[].loginServer"
 
         Result
@@ -80,7 +80,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
     
     * Replace the `acrServer` value from each of the files below with the Login server from previous step. You can launch the new code editor directly from the Azure Cloud Shell with the command below. Within the code editor, make changes to each of the yaml files below.
 
-        ```
+        ```bash
         cd charts
         code .
         ```
@@ -127,14 +127,16 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
     
     mongodb://cosmosbrian11199:ctumHIz1jC4Mh1hZgWGEcLwlCLjDSCfFekVFHHhuqQxIoJGiQXrIT1TZTllqyB4G0VuI4fb0qESeuHCRJHA==@acrhcosmosbrian11122.documents.azure.com:10255/<strong style="font-size:24px;font-family:courier;color:#308e48;background-color:yellow">hackfest</strong>?ssl=true
 
-    ```
+    ```bash
     export MONGODB_URI='outputFromAboveCommand'
     ```
+
     ```bash
     az cosmosdb show --name $COSMOSNAME --resource-group $RGNAME --query "name" -o tsv
 
     export MONGODB_USER='outputFromAboveCommand'
     ```
+
     ```bash
     az cosmosdb list-keys --name $COSMOSNAME --resource-group $RGNAME --query "primaryMasterKey" -o tsv
 
@@ -155,7 +157,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
 
     Install each chart as below:
 
-    ```
+    ```bash
     # Application charts 
 
     helm upgrade --install data-api ./charts/data-api
@@ -169,7 +171,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
 
     * First check to see if pods and services are working correctly
 
-    ```
+    ```bash
     kubectl get pod,svc
 
     NAME                                      READY     STATUS    RESTARTS   AGE
@@ -190,7 +192,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
 
     * Browse to the web UI
 
-    ```
+    ```bash
     kubectl get service service-tracker-ui
 
     NAME                TYPE           CLUSTER-IP   EXTERNAL-IP     PORT(S)          AGE
