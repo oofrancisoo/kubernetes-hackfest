@@ -8,9 +8,9 @@ This lab walks through the process of setting up Azure Monitor for containers to
 
 ## Instructions
 
-1. Enable monitoring
+> **Note:** Because we used the `--enable-addons monitoring` flag when we created our cluster, this step is already complete, and no this step is informational only.
 
-   > **Note:** Because we used the `--enable-addons monitoring` flag when we created our cluster, this step is already complete, and no this step is informational only.
+1. Enable monitoring
 
    * **Option 1:** Use the **Azure CLI**  
 
