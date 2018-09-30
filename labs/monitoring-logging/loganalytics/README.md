@@ -84,4 +84,4 @@ This lab walks through the process of setting up Azure Monitor for containers to
 * [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard)
 * [Using Azure Montior for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-analyze)
 
-#### Next Lab: [Service Mesh w/ Distributed Tracing](labs/servicemesh-tracing/README.md)
+#### Next Lab: [Service Mesh w/ Distributed Tracing](../../servicemesh-tracing/README.md)
