@@ -86,13 +86,13 @@ Step 1 & 2 Only Needed if you did not complete Helm Setup In previous labs. Skip
     ```bash
     # Apply Ingress Routes
     kubectl apply -f app-ingress.yaml
-    
+
     # Check Ingress Route & Endpoints
     kubectl get ingress
     kubectl get endpoints
     ```
 10. Check Ingress Route Works
-    * Open dnsname.eastus.cloudapp.azure.com
+    * Open <DNS-NAME>.eastus.cloudapp.azure.com
 
 #### Next Lab: [Network Policy](../network-policy/README.md)
 
