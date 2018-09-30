@@ -79,6 +79,11 @@ This lab walks through the process of setting up Azure Monitor for containers to
    }
    ```  
 
+https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-troubleshoot
+## Troubleshooting / Debugging
+
+* [Monitor enabled, but not reporting any information](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-troubleshoot)
+
 ## Docs / References
 
 * [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard)
