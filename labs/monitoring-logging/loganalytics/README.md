@@ -79,7 +79,27 @@ This lab walks through the process of setting up Azure Monitor for containers to
    }
    ```  
 
-3. Analyze cluster data from the **Monitor** section of the portal
+3. Verify you are seeing logs in Log Analytics by starting a container and sending logs to STDOUT.
+
+   Run the following command to start an nginx container and exec into the container. .
+
+   ```bash
+   kubectl run nginx-test --rm -ti --image=nginx /bin/sh
+   ```
+
+   When you are exec'd into the contatiner run the following command to generate logs and send to STDOUT. 
+
+   ```bash
+   echo "hackfest test logs " >> /proc/1/fd/1
+   ```
+
+   Give this a few minutes for logs to appears in Log Analytics. Do thefollowing to see the logs. 
+
+   
+   Open the Azure Portal | Select the Kubernetes service object | Select the Insights (preview) | Select Nodes | drill down through each of the nodes and find the nginx pod | after you select the pod choose the    Logs link and this will open Log Analytics. Look through the logs until you see the output from above. 
+
+
+4. Analyze cluster data from the **Monitor** section of the portal
 
    To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal. Under the Insights section select **Containers (preview)**.  
 
@@ -101,7 +121,7 @@ This lab walks through the process of setting up Azure Monitor for containers to
 
    From the list of clusters, you can drill-down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.  
 
-4. Analyze cluster data on the **Cluster**
+5. Analyze cluster data on the **Cluster**
 
    Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights (preview)** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
 
@@ -156,7 +176,7 @@ This lab walks through the process of setting up Azure Monitor for containers to
 
    You can continue to explore the available performance metrics for **Controllers** and **Containers**.
 
-5. Search logs to analyze data
+6. Search logs to analyze data
 
    Log Analytics can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want.  
 
@@ -194,7 +214,7 @@ This lab walks through the process of setting up Azure Monitor for containers to
    | where ObjectName == "Container" and CounterName == "Memory Usage MB"
    | summarize AvgUsedMemory = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName
    ```
-   
+
 ## Troubleshooting / Debugging
 
 * [Monitor enabled, but not reporting any information](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-troubleshoot)
