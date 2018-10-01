@@ -29,9 +29,9 @@ In this lab we will use Kube-Router for Network Policy Management. Kube-Router w
    kubectl get daemonset -n kube-system -l k8s-app=kube-router
    ```
 
-## Docs / References
+<!-- ## Docs / References
 
-* ?
+* ? -->
 
 
-#### Next Lab: [Monitoring and Logging](labs/monitoring-logging/README.md)
+#### Next Lab: [Monitoring and Logging](../../monitoring-logging/README.md)
