@@ -81,22 +81,22 @@ This lab walks through the process of setting up Azure Monitor for containers to
 
 3. Verify you are seeing logs in Log Analytics by starting a container and sending logs to STDOUT.
 
-Run the following command to start an nginx container and exec into the container. .
+   Run the following command to start an nginx container and exec into the container. .
 
    ```bash
    kubectl run nginx-test --rm -ti --image=nginx /bin/sh
    ```
 
-When you are exec'd into the contatiner run the following command to generate logs and send to STDOUT. 
+   When you are exec'd into the contatiner run the following command to generate logs and send to STDOUT. 
 
    ```bash
    echo "hackfest test logs " >> /proc/1/fd/1
    ```
 
-Give this a few minutes for logs to appears in Log Analytics. Do thefollowing to see the logs. 
+   Give this a few minutes for logs to appears in Log Analytics. Do thefollowing to see the logs. 
 
    
-Open the Azure Portal | Select the Kubernetes service object | Select the Insights (preview) | Select Nodes | drill down through each of the nodes and find the nginx pod | after you select the pod choose the Logs link and this will open Log Analytics. Look through the logs until you see the output from above. 
+   Open the Azure Portal | Select the Kubernetes service object | Select the Insights (preview) | Select Nodes | drill down through each of the nodes and find the nginx pod | after you select the pod choose the    Logs link and this will open Log Analytics. Look through the logs until you see the output from above. 
    
 
 https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-troubleshoot
