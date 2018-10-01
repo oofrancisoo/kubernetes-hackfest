@@ -12,12 +12,15 @@ This section contains a number of labs related to Monitoring and Logging AKS Clu
 1. [Azure Log Analytics](loganalytics/README.md)
 2. [Prometheus and Grafana](prometheus-grafana/README.md)
 
+<!-- 
 ## Troubleshooting / Debugging
 
 * ?
 
 ## Docs / References
 
-* ?
+* ? -->
 
-#### Next Lab: [Service Mesh w/ Distributed Tracing](labs/servicemesh-tracing/README.md)
+<!-- #### Next Lab: [Service Mesh w/ Distributed Tracing](labs/servicemesh-tracing/README.md) -->
+
+#### Next Lab: [Storage](../../storage/README.md)
