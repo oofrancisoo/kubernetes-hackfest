@@ -67,6 +67,8 @@ Step 1 & 2 Only Needed if you did not complete Helm Setup In previous labs. Skip
 7. Create CA Cluster Issuer
 
     ```bash
+    cd ~/kubernetes-hackfest/labs/networking/ingress/
+    
     kubectl apply -f cluster-issuer.yaml
     ```
 
