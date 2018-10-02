@@ -58,7 +58,16 @@ This should return a response because everything is allowed to talk.
 
    wget --spider --timeout=1 nginx
    ```   
+
 You should see this timeout because of the network policy that you just implemented. 
+
+5. Test to verify name resolution using the namespace
+
+   ```bash
+   kubectl run busybox --rm -ti --image=busybox /bin/sh
+
+   wget --spider --timeout=1 nginx.namespace
+
 
 ## Docs / References
 =======
