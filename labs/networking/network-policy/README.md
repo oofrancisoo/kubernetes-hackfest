@@ -30,8 +30,6 @@ In this lab we will use Kube-Router for Network Policy Management. Kube-Router w
    kubectl get daemonset -n kube-system -l k8s-app=kube-router
    ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 3. Run the following to create an application and verify pod to pod communication
    ```bash
    kubectl run nginx --image=nginx --replicas=2
