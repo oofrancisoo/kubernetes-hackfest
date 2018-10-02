@@ -24,14 +24,49 @@ In this lab we will use Kube-Router for Network Policy Management. Kube-Router w
    ```bash
    kubectl apply -f kube-router.yaml
    ```
+
 2. Check to verify kube-router pods are running
    ```bash
    kubectl get daemonset -n kube-system -l k8s-app=kube-router
    ```
 
+<<<<<<< HEAD
+3. Run the following to create an application and verify pod to pod communication
+   ```bash
+   kubectl run nginx --image=nginx --replicas=2
+
+   kubectl expose deployment nginx --port=80
+
+   kubectl run busybox --rm -ti --image=busybox /bin/sh
+
+   wget --spider --timeout=1 nginx
+   ```
+This should return a response because everything is allowed to talk. 
+
+4. Run the following commands to deploy a network policy to your cluster 
+   ```bash
+   cd kubernetes-hackfest/labs/networking/network-policy
+   ```
+   
+   ```bash
+   kubectl apply -f nginx-policy.yaml
+   ```
+
+4. Test to verify the network policy is working
+
+   ```bash
+   kubectl run busybox --rm -ti --image=busybox /bin/sh
+
+   wget --spider --timeout=1 nginx
+   ```   
+You should see this timeout because of the network policy that you just implemented. 
+
 ## Docs / References
+=======
+<!-- ## Docs / References
+>>>>>>> 6358a4aba01c49bad47b1f999072b4e302f6eb4f
 
-* ?
+* ? -->
 
 
-#### Next Lab: [Monitoring and Logging](labs/monitoring-logging/README.md)
+#### Next Lab: [Monitoring and Logging](../../monitoring-logging/README.md)
