@@ -152,3 +152,5 @@ k get secret prometheus-kube-prometheus -n monitoring -o json | jq -r '.data["pr
 * [Core OS Prometheus Operator](https://github.com/coreos/prometheus-operator/blob/v0.17.0/Documentation/user-guides/getting-started.md)
 * [Crash Course to Monitoring K8s](https://www.sumologic.com/blog/cloud/how-to-monitor-kubernetes/)
 * [Prometheus Operator Alerting](https://github.com/coreos/prometheus-operator/blob/v0.17.0/Documentation/user-guides/alerting.md)
+
+#### Next Lab: [Storage](../../storage/README.md)

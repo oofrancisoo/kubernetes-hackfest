@@ -81,22 +81,22 @@ This lab walks through the process of setting up Azure Monitor for containers to
 
 3. Verify you are seeing logs in Log Analytics by starting a container and sending logs to STDOUT.
 
-   Run the following command to start an nginx container and exec into the container. .
+   Run the following command to start an nginx container and exec into the container.
 
    ```bash
    kubectl run nginx-test --rm -ti --image=nginx /bin/sh
    ```
 
-   When you are exec'd into the contatiner run the following command to generate logs and send to STDOUT. 
+   When you are exec'd into the contatiner run the following command to generate logs and send to STDOUT.  
 
    ```bash
    echo "hackfest test logs " >> /proc/1/fd/1
    ```
 
-   Give this a few minutes for logs to appears in Log Analytics. Do thefollowing to see the logs. 
+   Give this a few minutes for logs to appears in Log Analytics. Do the following to see the logs.  
 
    
-   Open the Azure Portal | Select the Kubernetes service object | Select the Insights (preview) | Select Nodes | drill down through each of the nodes and find the nginx pod | after you select the pod choose the    Logs link and this will open Log Analytics. Look through the logs until you see the output from above. 
+   Open the Azure Portal | Select the **Kubernetes** service object | Select the **Insights (preview)** | Select **Nodes** | Drill down through each of the nodes and find the nginx pod | after you select the pod choose the **Logs** link and this will open Log Analytics. Look through the logs until you see the output from above. 
 
 
 4. Analyze cluster data from the **Monitor** section of the portal
@@ -224,4 +224,5 @@ This lab walks through the process of setting up Azure Monitor for containers to
 * [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard)
 * [Using Azure Montior for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-analyze)
 
-#### Next Lab: [Service Mesh w/ Distributed Tracing](../../servicemesh-tracing/README.md)
+<!-- #### Next Lab: [Service Mesh w/ Distributed Tracing](../../servicemesh-tracing/README.md) -->
+#### Next Lab: [Prometheus and Grafana](../prometheus-grafana/README.md)
