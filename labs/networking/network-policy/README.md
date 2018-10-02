@@ -31,6 +31,7 @@ In this lab we will use Kube-Router for Network Policy Management. Kube-Router w
    ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 3. Run the following to create an application and verify pod to pod communication
    ```bash
    kubectl run nginx --image=nginx --replicas=2
@@ -62,6 +63,9 @@ This should return a response because everything is allowed to talk.
 You should see this timeout because of the network policy that you just implemented. 
 
 ## Docs / References
+=======
+<!-- ## Docs / References
+>>>>>>> 6358a4aba01c49bad47b1f999072b4e302f6eb4f
 =======
 <!-- ## Docs / References
 >>>>>>> 6358a4aba01c49bad47b1f999072b4e302f6eb4f
