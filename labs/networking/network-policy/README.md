@@ -61,8 +61,12 @@ This should return a response because everything is allowed to talk.
 
 You should see this timeout because of the network policy that you just implemented. 
 
-5. Test to verify name resolution using the namespace
+5. Remove the network policy from the cluster
+   ```bash
+   kubectl delete network-policy access-nginx
+   ```
 
+6. Test and verify name resolution using the service.namespace
    ```bash
    kubectl run busybox --rm -ti --image=busybox /bin/sh
 
