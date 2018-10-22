@@ -49,7 +49,7 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
     * Pick a unique name (you can use the unique identifier created in the 1st lab)
     * Use "Node.js Application" for the app type
     * Select "kubernetes-hackfest" for the Resource Group
-    * Use "East US" for location
+    * Use "West US 2" for location
     * When this is completed, select "All services", and search for "Application Insights" 
     * Select your newly created Application Insights instance
     * On the Overview Page take note of the Instrumentation Key
