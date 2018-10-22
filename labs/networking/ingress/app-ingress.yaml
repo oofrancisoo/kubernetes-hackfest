@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - <DNSNAMEHERE>.eastus.cloudapp.azure.com
+    - <DNSNAMEHERE>.westus.cloudapp.azure.com
     secretName: tls-secret
   rules:
-  - host: <DNSNAMEHERE>.eastus.cloudapp.azure.com
+  - host: <DNSNAMEHERE>.westus.cloudapp.azure.com
     http:
       paths:
       - path: /
