@@ -27,7 +27,7 @@ When dynamically creating an Azure file share as a Kubernetes volume, any storag
 Azure CLICopy
 
 ```
-$ az aks show -g $RGNAME -n $CLUSTERNAME --query nodeResourceGroup -o tsv
+az aks show -g $RGNAME -n $CLUSTERNAME --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
 
