@@ -46,6 +46,32 @@ This should return a response because everything is allowed to talk.
    ```bash
    cd kubernetes-hackfest/labs/networking/network-policy
    ```
+   NOTE: Check if the file nginx-policy.yaml is in this directory
+   ```bash
+   #ll will list the files and folder ins this directory
+   ll
+   
+   #if nginx-policy.yaml DOES NOT exist, we have to create it.
+   touch nginx-policy.yaml
+   
+   code nginx-policy.yaml
+   
+   #add the following to our newly create nginx-policy.yaml file
+   kind: NetworkPolicy
+   apiVersion: networking.k8s.io/v1
+   metadata:
+      name: access-nginx
+   spec:
+      podSelector:
+         matchLabels:
+            run: nginx
+   ingress:
+   - from:
+      - podSelector:
+         matchLabels:
+            access: "true"
+   ```
+   Right click save and quit
    
    ```bash
    kubectl apply -f nginx-policy.yaml
