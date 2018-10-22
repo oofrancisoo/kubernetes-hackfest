@@ -27,7 +27,7 @@ When dynamically creating an Azure file share as a Kubernetes volume, any storag
 Azure CLICopy
 
 ```
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+$ az aks show -g $RGNAME -n $CLUSTERNAME --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
 
@@ -40,7 +40,7 @@ Update `--resource-group` with the name of the resource group gathered in the 
 Azure CLICopy
 
 ```
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
+az storage account create -g $RGNAME --name mystorageaccount --sku Standard_LRS
 
 ```
 
