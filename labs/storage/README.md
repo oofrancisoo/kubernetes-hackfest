@@ -10,7 +10,7 @@ This section contains a number of labs related to Storage decisions that are mad
 
 ## Options
 
-1. [Stateful Sets](statefulsets/README.md)
+1. [Stateful Sets (Coming soon)](statefulsets/README.md)
 2. [Persistent Volume Claims](pvcs/README.md)
 <!-- 
 ## Troubleshooting / Debugging
