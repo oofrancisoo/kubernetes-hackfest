@@ -160,11 +160,11 @@ In this lab we will setup Helm in our AKS cluster and deploy our application wit
     ```bash
     # Application charts 
 
-    helm upgrade --install data-api ./charts/data-api
-    helm upgrade --install quakes-api ./charts/quakes-api
-    helm upgrade --install weather-api ./charts/weather-api
-    helm upgrade --install flights-api ./charts/flights-api
-    helm upgrade --install service-tracker-ui ./charts/service-tracker-ui
+    helm upgrade --install data-api ./data-api
+    helm upgrade --install quakes-api ./quakes-api
+    helm upgrade --install weather-api ./weather-api
+    helm upgrade --install flights-api ./flights-api
+    helm upgrade --install service-tracker-ui ./service-tracker-ui
     ```
 
 6. Initialize application
