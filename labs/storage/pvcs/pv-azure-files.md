@@ -27,6 +27,9 @@ When dynamically creating an Azure file share as a Kubernetes volume, any storag
 Azure CLICopy
 
 ```
+#lets make sure we are in the right directory
+cd ~/kubernetes-hackfest/labs/storage
+
 az aks show -g $RGNAME -n $CLUSTERNAME --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -55,6 +58,12 @@ A storage class is used to define how an Azure file share is created. A storage 
 
 Create a file named `azure-file-sc.yaml` and copy in the following example manifest. Update the *storageAccount* value with the name of your storage account created in the previous step. For more information on *mountOptions*, see the [Mount options](https://docs.microsoft.com/en-us/azure/aks/azure-files-dynamic-pv#mount-options) section.
 
+```
+#create the azure-file-sc.yaml file
+touch azure-file-sc.yaml
+
+code azure-file-sc.yaml
+```
 yamlCopy
 
 ```
@@ -70,7 +79,7 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
+  storageAccount: <enter_the_storageaccount_you_created>
 
 ```
 
@@ -89,6 +98,13 @@ Create a cluster role and binding[](https://docs.microsoft.com/en-us/azure/aks/a
 AKS clusters use Kubernetes role-based access control (RBAC) to limit actions that can be performed. *Roles* define the permissions to grant, and *bindings* apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 To allow the Azure platform to create the required storage resources, create a *ClusterRole* and *ClusterRoleBinding*. Create a file named `azure-pvc-roles.yaml` and copy in the following YAML:
+
+```
+#create the azure-pvc-roles.yaml file
+touch azure-pvc-roles.yaml
+
+code azure-pvc-roles.yaml
+```
 
 yamlCopy
 
@@ -134,6 +150,13 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
 
 Now create a file named `azure-file-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the last step:
 
+```
+#create the azure-file-pvc.yaml file
+touch azure-file-pvc.yaml
+
+code azure-file-pvc.yaml
+```
+
 yamlCopy
 
 ```
@@ -165,7 +188,7 @@ Once completed, the file share will be created. A Kubernetes secret is also crea
 Copy
 
 ```
-$ kubectl get pvc azurefile
+kubectl get pvc azurefile
 
 NAME        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            azurefile      5m
@@ -178,6 +201,13 @@ Use the persistent volume[](https://docs.microsoft.com/en-us/azure/aks/azure-fil
 The following YAML creates a pod that uses the persistent volume claim *azurefile* to mount the Azure file share at the */mnt/azure*path.
 
 Create a file named `azure-pvc-files.yaml`, and copy in the following YAML. Make sure that the *claimName* matches the PVC created in the last step.
+
+```
+#create the azure-pvc-files.yaml file
+touch azure-pvc-files.yaml
+
+code azure-pvc-files.yaml
+```
 
 yamlCopy
 
