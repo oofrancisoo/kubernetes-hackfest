@@ -1,4 +1,4 @@
-# Lab: Storage
+# Lab: Storage (Coming soon)
 
 This section contains a number of labs related to Storage decisions that are made when doing Production deployments of Kubernetes. They are each self-contained labs meaning you do not have to do one before another.
 
