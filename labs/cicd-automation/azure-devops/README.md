@@ -87,20 +87,20 @@ In the deployment pipeline, we will create a Helm task to update our application
 
     > Note: To save time, we will only deploy the service-tracker-ui application in this lab. 
 
-1. Hover over "Build and release" and select "Releases"
+1. Under Pipelines click on "Releases"
 2. Click the "New pipeline" button
-3. Select to "start with an Empty job"
+3. Select to "Empty job"
 4. Name the pipeline "AKS Helm Deploy" (it will default to "New release pipeline")
-5. Click on "+ Add" next to Artifacts
-6. In "Source (build pipeline)", select the build we created earlier (should be named "azure-devops-aks-CI")
+5. Name the stage "dev" and click the 'x' to close the window
+6. Click on "+ Add" next to Artifacts
+7. In "Source (build pipeline)", select the build we created earlier (should be named "azure-devops-aks-CI")
 
     ![](azure-do-release-artifact.png)
 
-7. Click on the lightning bolt next to the Artifact we just created and enable "Continuous deployment trigger"
-8. Click on "Stage 1" in the Stages box.
-9. Name the stage "dev"
-10. Click on "1 job, 0 task" to view stage tasks
-11. Click on "Agent job" and change the agent pool to "Hosted Linux Preview" in the drop down
+8. Click on the "Add" button 
+9. Click on the lightning bolt next to the Artifact we just created and enable "Continuous deployment trigger"
+10. Click on "1 job, 0 task" button to view stage tasks
+11. Click on "Agent job" and change the agent pool to "Hosted Hosted Ubuntu 1604" in the drop down
 12. On the Agent job, click the "+" to add a Task
 13. Search for "helm" and add the task called "Package and deploy Helm charts"
 14. Click on the task (named "helm ls") to configure all of the settings for the release
