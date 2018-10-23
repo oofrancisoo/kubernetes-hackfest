@@ -33,7 +33,7 @@ The general workflow/result will be as follows:
     * Name your project "azure-devops-aks" and give it a description.
     * Leave the Version control as Git
 
-    ![](azure-do-new-project-new.png)
+    ![](azure-devops-aks-new.png)
 
 3. Click on "Repos" and "Import" and use the source from this repo
 
