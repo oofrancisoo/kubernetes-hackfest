@@ -33,34 +33,36 @@ The general workflow/result will be as follows:
     * Name your project "azure-devops-aks" and give it a description.
     * Leave the Version control as Git
 
-    ![](azure-do-new-project.png)
+    ![](azure-do-new-project-new.png)
 
-3. On the next screen, choose "import a repository" and use the source from this repo
+3. Click on "Repos" and "Import" and use the source from this repo
 
+   https://github.com/Azure/kubernetes-hackfest
+   
     ![](azure-do-import.png)
 
 #### Create Build Pipeline
 
-1. Create an empty build pipeline. Hover over "Build and release" and select "Builds"
-2. Click the "New pipeline" button
-3. In "Select a source," use `Azure Repos Git` and ensure it is pointing to your newly built repo (this is the default)
+1. Create an empty build pipeline. Click on "Pipelines" then "New pipeline"
+2. Click on "Use Visual designer"
+3. In "Select a source," use `Azure Repos Git` and ensure it is pointing to your newly built repo (this is the default), Click Continue
     > Note that we are using the master branch here. Normally we would use other branches and PR's. For simplicity, we are using master just for this lab.
 
-4. Select to "start with an Empty job"
+4. Select to "Empty job" at the top of the page
 5. Leave the name as "azure-devops-aks-CI"
-6. Change the Agent queue to use the "Hosted Linux Preview"
-7. Click the plus sign by Phase 1 to add a task
-8. Search tasks for "Azure" and add the Azure CLI task
+6. Under Agent pool: Change the Agent to use the "Hosted Ubuntu 1604"
+7. Click the plus sign by Agent job 1 to add a task
+8. Search tasks for "Azure CLI" and add the Azure CLI task
 
     ![](azure-do-azurecli.png)
 
-9. Click on the Azure CLI task and choose your Azure subscription and `Authorize`
+9. Click on the Azure CLI task and choose your Azure subscription and click `Authorize`
 10. Choose "Inline script" and enter the following (be sure to replace the ACR name with yours). Notice how we create a dynamic image tag using our build ID from VSTS.
 
     > **Note:** Make sure to add your Azure Container Registry name to the first line of the script below.
 
     ```
-    export ACRNAME=<replace>
+    export ACRNAME='<replace>'
     export IMAGETAG=vsts-$(Build.BuildId)
 
     az acr build -t hackfest/data-api:$IMAGETAG -r $ACRNAME --no-logs ./app/data-api
@@ -70,13 +72,13 @@ The general workflow/result will be as follows:
     az acr build -t hackfest/service-tracker-ui:$IMAGETAG -r $ACRNAME --no-logs ./app/service-tracker-ui  
     ```
 
-11. Add another task and search for "Publish Build Artifacts". Use "charts" for the artifact name and browse to the charts folder for the "Path to publish"
+11. Add another task and search for "Publish Build Artifacts". Click the task and use "charts" for the artifact name and browse to the charts folder for the "Path to publish"
 
     ![](azure-do-artifact.png)
 
-11. Test this by clicking "Save & queue" and providing a comment
-12. Click on "Builds" to check result
-13. Enable Continuous integration for the build definition. Edit the build definition and you will find this setting under "Triggers"
+11. Click on 'Triggers' and toggle 'Enable continuous integration'
+12. Test this by clicking "Save & queue" and providing a comment
+13. Click on "Builds" to check result
 
 
 #### Create Deployment Pipeline
