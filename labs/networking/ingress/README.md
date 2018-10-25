@@ -94,7 +94,7 @@ Step 1 & 2 Only Needed if you did not complete Helm Setup In previous labs. Skip
     kubectl get endpoints
     ```
 10. Check Ingress Route Works
-    * Open <DNS-NAME>.westus.cloudapp.azure.com
+    * Open $DNSNAME.westus.cloudapp.azure.com
 
 #### Next Lab: [Network Policy](../network-policy/README.md)
 
